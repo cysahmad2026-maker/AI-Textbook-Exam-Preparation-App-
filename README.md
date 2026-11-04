@@ -1,205 +1,98 @@
 
-# 🇵🇰 Pakistan AI Exam Preparation
+# 🎓 AI Matric & Intermediate Exam Preparation
 
-An AI-powered exam preparation application designed for Pakistani Matric and Intermediate students.
+An AI-powered exam preparation application for Pakistan Matric and Intermediate students.
 
-Students can upload their own textbook chapters, generate practice questions, attempt exams, check their answers, and receive explanations in English, Urdu, or Roman Urdu.
+Students can upload textbook chapters, generate practice questions, submit answers, and receive AI-based feedback using Google Gemini.
 
-Built using Python, Streamlit, and Google's Gemini API.
+## 🚀 Features
 
----
-
-## 🎓 Target Students
-
-- Matric Class 9
-- Matric Class 10
-- Intermediate Class 11
-- Intermediate Class 12
-
-Designed for students studying under Pakistani educational boards.
-
-Supported board options:
-
-- FBISE
-- Punjab Board
-- KPK Board
-- Sindh Board
-- Balochistan Board
-- AJK Board
-- Other educational boards
-
-Board-specific alignment depends on the uploaded textbook and the information provided by the student.
-
----
-
-## ✨ Features
-
-### 1. Upload Your Own Textbook
-
-Students can upload:
-
-- PDF
-- TXT
-- DOCX
-
-The application extracts the chapter text and uses it as the primary source for generating questions and checking answers.
-
-### 2. AI Practice Questions
-
-Generate practice questions from uploaded chapters.
-
-Available question types:
-
-- Multiple Choice Questions (MCQs)
-- Short Questions
-- Long Questions
-- Mixed Practice
-
-Students can select how many questions they want.
-
-### 3. AI Answer Checking
-
-Students submit their answers and receive:
-
-- Estimated marks
-- Correct or partially correct status
-- Explanation of their answers
-- Missing important points
-- Mistakes to improve
-- Model answers
-- Relevant textbook evidence
-
-The AI evaluates the meaning of answers instead of relying only on exact wording.
-
-### 4. Multilingual Explanations
-
-Students can select:
-
-- English
-- Urdu
-- Roman Urdu
-
-Questions are generated in English, while explanations and answer feedback follow the selected language.
-
-### 5. Student Results
-
-The application provides:
-
-- Total score
-- Percentage
-- Correct answers
-- Partially correct answers
-- Incorrect answers
-- Question-by-question review
-
----
+- Upload textbook chapters in PDF, TXT, and DOCX formats.
+- Generate MCQs, short questions, long questions, or mixed questions.
+- Select Matric or Intermediate education system.
+- Select class 9th, 10th, 11th, or 12th.
+- Enter subject and chapter name.
+- Select Easy, Medium, or Hard difficulty.
+- Generate 5, 10, 15, or 20 questions.
+- Practice questions in English, Urdu, or Roman Urdu.
+- Submit answers for AI evaluation.
+- Receive feedback and model answers.
+- View marks and percentage.
+- Download exam result report as JSON.
+- Test Gemini API connection.
+- Deploy through Streamlit Community Cloud.
 
 ## 🛠️ Technologies
 
-| Technology | Purpose |
-|-----------|---------|
-| Python | Application development |
-| Streamlit | Frontend and web interface |
-| Google Gemini API | AI question generation and evaluation |
-| PyPDF | PDF text extraction |
-| Python-docx | Word document extraction |
-| GitHub | Source code management |
-| Streamlit Community Cloud | Application deployment |
-
----
+- Python
+- Streamlit
+- Google Gemini API
+- Google Gen AI Python SDK
+- PyPDF
+- Python-docx
+- GitHub
+- Streamlit Community Cloud
 
 ## 📁 Project Structure
 
 ```text
-pakistan-ai-exam-preparation/
+AI-Exam-Preparation/
 │
 ├── app.py
 ├── requirements.txt
 └── README.md
 ```
 
----
+## 🔑 Gemini API Setup
 
-## 🚀 Installation
+### Step 1: Get your API key
 
-### Step 1: Clone the Repository
+1. Open Google AI Studio:
+   https://aistudio.google.com/
+2. Create or select a project.
+3. Create a Gemini API key.
+4. Copy your API key.
 
-Open your terminal or Git Bash.
+Never publish your API key in GitHub.
 
-```bash
-git clone https://github.com/YOUR_USERNAME/pakistan-ai-exam-preparation.git
-```
+### Step 2: Configure Streamlit secrets locally
 
-Replace YOUR_USERNAME with your GitHub username.
-
-### Step 2: Open the Project
-
-```bash
-cd pakistan-ai-exam-preparation
-```
-
-### Step 3: Create a Virtual Environment
-
-```bash
-python -m venv venv
-```
-
-Activate it.
-
-Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-Mac/Linux:
-
-```bash
-source venv/bin/activate
-```
-
-### Step 4: Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Step 5: Configure Gemini API
-
-Obtain a Gemini API key from Google AI Studio:
-
-https://aistudio.google.com/
-
-Create a file named:
+Create a folder named:
 
 ```text
-.streamlit/secrets.toml
+.streamlit
 ```
 
-Your project should now look like:
+Inside it, create:
 
 ```text
-pakistan-ai-exam-preparation/
-│
-├── .streamlit/
-│   └── secrets.toml
-│
-├── app.py
-├── requirements.txt
-└── README.md
+secrets.toml
 ```
 
-Add your API key:
+Add:
 
 ```toml
 GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"
+GEMINI_MODEL = "gemini-3.8-flash"
 ```
 
-Replace YOUR_GEMINI_API_KEY with your actual API key.
+Replace `YOUR_GEMINI_API_KEY` with your actual API key.
 
-Do not upload secrets.toml to GitHub.
+Do not upload this secrets file to GitHub.
 
-### Step 6: Run the Application
+### Step 3: Install requirements
+
+Open your terminal inside the project directory.
+
+Run:
+
+```bash
+pip install --upgrade -r requirements.txt
+```
+
+### Step 4: Start the application
+
+Run:
 
 ```bash
 streamlit run app.py
@@ -207,202 +100,138 @@ streamlit run app.py
 
 The application will open in your browser.
 
-Default local address:
-
-http://localhost:8501
-
----
-
-## 🌐 Deploy on Streamlit Community Cloud
-
-### Step 1: Push Your Code to GitHub
-
-Your GitHub repository must contain:
+Usually the local URL is:
 
 ```text
-app.py
-requirements.txt
-README.md
+http://localhost:8501
 ```
 
-### Step 2: Open Streamlit Community Cloud
+## ☁️ Deploy on Streamlit Community Cloud
+
+### Step 1: Upload project to GitHub
+
+Create a GitHub repository.
+
+Upload these files:
+
+- app.py
+- requirements.txt
+- README.md
+
+Do not upload your API key.
+
+### Step 2: Open Streamlit Cloud
+
+Visit:
 
 https://share.streamlit.io/
 
-Sign in with GitHub.
+Sign in using GitHub.
 
-### Step 3: Create an Application
+### Step 3: Create application
+
+Click:
+
+**Create app**
 
 Select:
 
-- Repository: pakistan-ai-exam-preparation
+- Repository: Your GitHub repository
 - Branch: main
-- Main file: app.py
+- Main file path: app.py
 
 Click Deploy.
 
-### Step 4: Configure API Secrets
+### Step 4: Add API key
 
-Open your deployed application settings.
+Open your deployed application's settings.
 
-Go to:
-
-Settings → Secrets
+Find the Secrets section.
 
 Add:
 
 ```toml
 GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"
+GEMINI_MODEL = "gemini-3.8-flash"
 ```
 
 Save the secrets.
 
-Streamlit will restart the application.
+Restart or redeploy the application if necessary.
 
-### Step 5: Open Your Application
+## 🧪 Test Gemini API
 
-After deployment, Streamlit will provide a public application URL.
+Open your application.
 
-Share that URL with students.
+In the sidebar, click:
 
----
+**Test Gemini API**
 
-## 📚 How Students Use the App
+A successful response should display:
 
-### Step 1
+```text
+GEMINI CONNECTION SUCCESSFUL
+```
 
-Open the application.
+If the connection fails:
 
-### Step 2
+1. Check that your API key is correct.
+2. Check that Gemini API access is enabled.
+3. Confirm that your selected model is available.
+4. Check your API quota and billing requirements.
+5. Check that google-genai is installed and updated.
 
-Select their class:
+## 📚 How to Use
 
-9th, 10th, 11th, or 12th.
+1. Open the application.
+2. Select your education system.
+3. Select your class.
+4. Enter your subject.
+5. Enter your chapter name.
+6. Upload your textbook chapter.
+7. Choose question type.
+8. Choose difficulty.
+9. Choose number of questions.
+10. Choose language.
+11. Click Generate Exam Questions.
+12. Answer the questions.
+13. Click Submit Answers for Evaluation.
+14. Review marks and feedback.
+15. Download your result report if needed.
 
-### Step 3
+## ⚠️ Important Notes
 
-Select their subject and educational board.
+- The application requires a valid Gemini API key.
+- API usage may have limits or costs depending on your Google AI account.
+- Scanned PDFs may not contain extractable text.
+- The app currently reads text from PDF, DOCX, and TXT files.
+- Very large chapters are shortened before being sent to Gemini.
+- AI-generated questions and feedback may contain errors.
+- Always verify important answers using your official textbook and teacher.
+- The result is for practice and is not an official board examination result.
 
-### Step 4
+## 🔒 Security
 
-Enter their chapter name.
+Never commit API keys or secrets to GitHub.
 
-### Step 5
+Use Streamlit Secrets for deployment.
 
-Upload their textbook chapter.
-
-### Step 6
-
-Extract the chapter text.
-
-### Step 7
-
-Select the question type, number of questions, and explanation language.
-
-### Step 8
-
-Generate practice questions.
-
-### Step 9
-
-Attempt the questions.
-
-### Step 10
-
-Submit answers and receive AI feedback.
-
-### Step 11
-
-Review marks, explanations, mistakes, and model answers.
-
----
-
-## 🔐 API Security
-
-Never expose your Gemini API key in:
-
-- app.py
-- GitHub repositories
-- Public README files
-- Screenshots
-- Public configuration files
-
-Use Streamlit secrets or environment variables.
-
-If an API key is accidentally published, revoke it and generate a replacement.
-
----
-
-## ⚠️ Important Limitations
-
-1. AI-generated questions may contain errors.
-2. Answer checking is an estimated evaluation, not official board marking.
-3. Text-based PDFs work best.
-4. Scanned PDFs require OCR.
-5. Very large chapters may exceed model context limits.
-6. Urdu and Roman Urdu explanations may require proofreading.
-7. Board-specific paper patterns are not guaranteed unless explicitly implemented and supported by the relevant syllabus.
-8. API usage may incur costs or be subject to provider limits.
-
-Students should verify important answers against their textbooks and teacher guidance.
-
----
-
-## 🔮 Future Improvements
-
-- User accounts and student profiles
-- Save practice test history
-- Chapter-wise progress tracking
-- Downloadable PDF question papers
-- Past paper practice
-- Board-specific exam patterns
-- Urdu Nastaliq questions
-- OCR for scanned textbook pages
-- Subject-wise dashboard
-- Timed examinations
-- Automatic question difficulty levels
-- Teacher dashboard
-- Student leaderboard
-- Firebase or Supabase database
-- AI-generated revision notes
-- Weak-topic identification
-- Chapter summaries
-- Flashcards
-- Daily study plans
-
----
+If an API key is accidentally published, revoke it and create a new one.
 
 ## 👨‍💻 Development
 
-Contributions are welcome.
+Install dependencies:
 
-To contribute:
+```bash
+pip install -r requirements.txt
+```
 
-1. Fork the repository.
-2. Create a feature branch.
-3. Make your changes.
-4. Test the application.
-5. Submit a pull request.
+Run:
 
----
+```bash
+streamlit run app.py
+```
 
 ## 📄 License
 
-This project is intended for educational purposes.
-
-Add an appropriate open-source license before distributing the application.
-
----
-
-## 🎯 Project Goal
-
-Make textbook-based exam preparation easier and more accessible for Pakistani Matric and Intermediate students.
-
-Learn from your own textbook.
-
-Practice exam questions.
-
-Understand your mistakes.
-
-Prepare smarter.
-```
+This project is intended for educational use.
